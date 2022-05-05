@@ -1,19 +1,19 @@
-FROM debian:stretch-slim
-LABEL maintainer="Phil Hawthorne <me@philhawthorne.com>"
+FROM debian:11-slim
+LABEL maintainer="Marcio Hassegawa <mhassegawa@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
 # Default versions
-ENV INFLUXDB_VERSION=1.8.2
-ENV CHRONOGRAF_VERSION=1.8.6
-ENV GRAFANA_VERSION=7.2.0
+ENV INFLUXDB_VERSION=2.3.0
+ENV CHRONOGRAF_VERSION=1.9.4
+ENV GRAFANA_VERSION=8.5.2
 
 # Grafana database type
 ENV GF_DATABASE_TYPE=sqlite3
 
 # Fix bad proxy issue
-COPY system/99fixbadproxy /etc/apt/apt.conf.d/99fixbadproxy
+# COPY system/99fixbadproxy /etc/apt/apt.conf.d/99fixbadproxy
 
 WORKDIR /root
 
