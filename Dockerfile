@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
 # Default versions
-ENV INFLUXDB_VERSION=2.3.0
+ENV INFLUXDB_VERSION=2.2.0
 ENV CHRONOGRAF_VERSION=1.9.4
 ENV GRAFANA_VERSION=8.5.2
 
@@ -46,10 +46,10 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
     && apt-get install -y nodejs \
     && mkdir -p /var/log/supervisor \
     && rm -rf .profile \
-    # Install InfluxDB
-    && wget --no-verbose https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
-    && dpkg -i influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
-    && rm influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
+    # Install InfluxDB  
+    && wget --no-verbose https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-${ARCH}.deb \
+    && dpkg -i influxdb2-${INFLUXDB_VERSION}-${ARCH}.deb \
+    && rm influxdb2-${INFLUXDB_VERSION}-${ARCH}.deb \
     # Install Chronograf
     && wget https://dl.influxdata.com/chronograf/releases/chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb \
     && dpkg -i chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb && rm chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb \
